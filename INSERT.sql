@@ -89,21 +89,33 @@ VALUES
 	('Rocket Man: The Definitive Hits');
 
 -- Дополнение данных в таблицу "collections"
-UPDATE collections 
-SET release_year = '2005-07-19'
-WHERE collection_id = 1;
+UPDATE
+    collections 
+SET
+    release_year = '2005-07-19'
+WHERE
+    collection_id = 1;
 
-UPDATE collections 
-SET release_year = '2003-11-17'
-WHERE collection_id = 2;
+UPDATE
+    collections 
+SET
+    release_year = '2003-11-17'
+WHERE
+    collection_id = 2;
 
-UPDATE collections 
-SET release_year = '2007-03-23'
-WHERE collection_id = 3;
+UPDATE
+    collections 
+SET
+    release_year = '2007-03-23'
+WHERE
+    collection_id = 3;
 
-UPDATE collections 
-SET release_year = '2004-11-30'
-WHERE collection_id = 4;
+UPDATE
+    collections 
+SET
+    release_year = '2004-11-30'
+WHERE
+    collection_id = 4;
 
 -- Вставка данных в таблицу "tracks_collections"
 INSERT INTO
