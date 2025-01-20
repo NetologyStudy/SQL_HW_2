@@ -101,9 +101,9 @@ ADD COLUMN
 	duration_seconds INTEGER;
 
 UPDATE
-	tracks
+    tracks
 SET
-	duration_seconds = EXTRACT(EPOCH FROM duration);
+    duration_seconds = EXTRACT(EPOCH FROM duration);
 
 ALTER TABLE
 	tracks
@@ -117,10 +117,10 @@ RENAME COLUMN
 
 -- Добвление ограничения в поле "duration" таблицы "tracks"
 ALTER TABLE
-	tracks
+    tracks
 ADD CONSTRAINT
-	check_duration_limit
+    check_duration_limit
 CHECK
-	(duration <= 240);
+    (duration <= 240);
 
 
