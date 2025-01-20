@@ -52,7 +52,7 @@ CREATE TABLE tracks_collections(
 	collection_id INTEGER REFERENCES collections(collection_id)
 );
 
--- Добавление колнны в таблицу "tracks_collections"
+-- Добавление колонны в таблицу "tracks_collections"
 ALTER TABLE
 	collections
 ADD COLUMN
@@ -94,7 +94,7 @@ ALTER TABLE
 RENAME COLUMN
 	nickanme TO nickname;
 
--- Изменение типа данных в стобце "duration" в таблицу "tracks"
+-- Изменение типа данных в стобце "duration" в таблицы "tracks"
 ALTER TABLE
 	tracks
 ADD COLUMN
