@@ -60,19 +60,19 @@ ADD COLUMN
 
 -- Добвление ограничения в столбец "duration" таблицы "tracks" 
 ALTER TABLE
-	tracks
+    tracks
 ADD CONSTRAINT
-	check_duration_max
+    check_duration_max
 CHECK
-	(duration <= MAKE_INTERVAL(mins => 4));
+    (duration <= MAKE_INTERVAL(mins => 4));
 
 -- Добвление ограничения в поле "release_year" таблицы "collections" 
 ALTER TABLE
-	collections
+    collections
 ADD CONSTRAINT
-	check_collection_release_year
+   check_collection_release_year
 CHECK
-	(EXTRACT(YEAR FROM release_year) >= 2000 AND EXTRACT(YEAR FROM release_year) <= EXTRACT(YEAR FROM CURRENT_DATE));
+   (EXTRACT(YEAR FROM release_year) >= 2000 AND EXTRACT(YEAR FROM release_year) <= EXTRACT(YEAR FROM CURRENT_DATE));
 
 -- Исправление ошибки в поле "release_year" в таблице "albums"
 ALTER TABLE
