@@ -1,13 +1,18 @@
 -- Название и продолжительность самого длительного трека
+WITH MinDuration AS (
+    SELECT MAX(duration) AS min_duration
+    FROM tracks
+)
 SELECT
-	track_title,
-	duration
+    track_title,
+    duration
 FROM
-	tracks
+    tracks
+JOIN
+    MinDuration ON duration = MinDuration.min_duration
 ORDER BY
-	duration DESC
-LIMIT
-	1;
+	duration;
+
 
 -- Название треков, продолжительность которых не менее 3,5 минут.
 SELECT
@@ -75,23 +80,8 @@ JOIN
 	albums AS a ON t.album_id = a.album_id
 GROUP BY
 	a.album_title;
--- У Элтона Джона 2 альбома, один их которых вышел в 2021 году.
--- Первый вариант выводит исполнителей и их альбомы, которые не вышли в 2021 году.
--- Второй-имена исполнителей, котороые в принципе не выпустили альбом в 2021 году.
 
--- Все исполнители, которые не выпустили альбомы в 2021 году (1)
-SELECT
-	ar.nickname, al.album_title, al.release_year 
-FROM
-	artists_albums AS aa
-JOIN
-	artists AS ar ON aa.artist_id = ar.artist_id
-JOIN
-	albums AS al ON aa.album_id = al.album_id
-WHERE
-	EXTRACT(YEAR FROM al.release_year) != 2021;
-
--- Все исполнители, которые не выпустили альбомы в 2021 году (2)
+-- Все исполнители, которые не выпустили альбомы в 2021 году
 SELECT
 	ar.nickname
 FROM
